@@ -68,3 +68,15 @@ section {
     text-align: center;
     font-size: 50px;
 }
+
+.handSigns,
+.options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.playerHands {
+    transform: rotateY(180deg);
+}
