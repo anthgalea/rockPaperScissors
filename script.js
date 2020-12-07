@@ -13,8 +13,16 @@ const game = () => {
             contest.classList.add('fadeIn');
         });
     };
+    //Play the game.
+    const playGame = () => {
+        const options = document.querySelectorAll('.options button');
+        const playerHands = document.querySelector('.playerHands');
+        const computerHands = document.querySelector('computerHands');
+        const allHandSigns = document.querySelectorAll('.handSigns img');
+    };
 
-    //Call all the inner functions.
+
+    //Call all the inner functions. 
     beginGame();
 };
 
