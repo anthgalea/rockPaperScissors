@@ -21,7 +21,6 @@ const game = () => {
         const allHandSigns = document.querySelectorAll('.handSigns img');
     };
 
-
     //Call all the inner functions. 
     beginGame();
 };
