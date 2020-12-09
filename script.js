@@ -17,7 +17,7 @@ const game = () => {
     const playGame = () => {
         const options = document.querySelectorAll('.options button');
         const playerHands = document.querySelector('.playerHands');
-        const computerHands = document.querySelector('computerHands');
+        const computerHands = document.querySelector('.computerHands');
         const allHandSigns = document.querySelectorAll('.handSigns img');
         //Computer Choices.
         const computerChoices = ['rock', 'paper', 'scissors'];
@@ -25,10 +25,14 @@ const game = () => {
         options.forEach(option=>{
             option.addEventListener('click', function(){
                 //Computer decision from array.
-                const computerNumber = Math.floor(Math.random() *3);
+                const computerNumber = Math.floor(Math.random() * 3);
                 const computerDecision = computerChoices[computerNumber];
                 //Call compareTheHandSigns here
-                
+
+
+                //Bring the images up to date.
+                playerHands.src = `./assets/${this.textContent}.png`;
+                computerHands.src = `./assets/${computerDecision}.png`;
             });
         });
     };
