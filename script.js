@@ -28,7 +28,7 @@ const game = () => {
                 const computerNumber = Math.floor(Math.random() * 3);
                 const computerDecision = computerChoices[computerNumber];
                 //Call compareTheHandSigns here
-
+                compareTheHandSigns(this.textContent, computerDecision);
 
                 //Bring the images up to date.
                 playerHands.src = `./assets/${this.textContent}.png`;
@@ -36,6 +36,14 @@ const game = () => {
             });
         });
     };
+
+    //This function will update the points. 
+    const updatePoints = () => {
+        const playerPoints = document.querySelector('.playerPoints p');
+        const computerPoints = document.querySelector('.computerPoints p');
+        playerPoints.textContent = pPoints;
+        computerPoints.textContent = cPoints;
+    }
 
     const compareTheHandSigns = (playerDecision, computerDecision) =>{
         //Update text on screen.
