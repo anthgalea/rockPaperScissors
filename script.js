@@ -19,6 +19,12 @@ const game = () => {
         const playerHands = document.querySelector('.playerHands');
         const computerHands = document.querySelector('.computerHands');
         const allHandSigns = document.querySelectorAll('.handSigns img');
+
+        allHandSigns.forEach(hand => {
+            hand.addEventListener('animationend', function(){
+                this.style.animation = '';
+            });
+        })
         //Computer Choices.
         const computerChoices = ['rock', 'paper', 'scissors'];
 
@@ -27,12 +33,19 @@ const game = () => {
                 //Computer decision from array.
                 const computerNumber = Math.floor(Math.random() * 3);
                 const computerDecision = computerChoices[computerNumber];
-                //Call compareTheHandSigns here
-                compareTheHandSigns(this.textContent, computerDecision);
 
-                //Bring the images up to date.
-                playerHands.src = `./assets/${this.textContent}.png`;
-                computerHands.src = `./assets/${computerDecision}.png`;
+                setTimeout(() => {
+                    //Call compareTheHandSigns here
+                    compareTheHandSigns(this.textContent, computerDecision);
+
+                    //Bring the images up to date.
+                    playerHands.src = `./assets/${this.textContent}.png`;
+                    computerHands.src = `./assets/${computerDecision}.png`;
+                }, 2000);
+
+                //This animation will move the images up and down.
+                playerHands.style.animation = 'playerMoveUpDown 2s ease';
+                computerHands.style.animation = 'computerMoveUpDown 2s ease';
             });
         });
     };
@@ -57,9 +70,13 @@ const game = () => {
         if(playerDecision === 'rock'){
             if(computerDecision === 'scissors'){
                 theWinner.textContent = 'Player wins';
+                pPoints++;
+                updatePoints();
                 return;
             }else{
                 theWinner.textContent = 'Computer wins';
+                cPoints++;
+                updatePoints();
                 return;
             }
         }
@@ -67,9 +84,13 @@ const game = () => {
         if(playerDecision === 'paper'){
             if(computerDecision === 'rock'){
                 theWinner.textContent = 'Player wins';
+                pPoints++;
+                updatePoints();
                 return;
             }else{
                 theWinner.textContent = 'Computer wins';
+                cPoints++;
+                updatePoints();
                 return;
             }
         }
@@ -77,9 +98,13 @@ const game = () => {
         if(playerDecision === 'scissors'){
             if(computerDecision === 'paper'){
                 theWinner.textContent = 'Player wins';
+                pPoints++;
+                updatePoints();
                 return;
             }else{
                 theWinner.textContent = 'Computer wins';
+                cPoints++;
+                updatePoints();
                 return;
             }
         }
